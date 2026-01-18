@@ -388,7 +388,7 @@
 <body>
     <nav class="nav">
         <div class="nav-content">
-            <div class="logo">LUMIÈRE</div>
+            <div class="logo">NathphotosArt</div>
             <a href="#paquetes" class="nav-cta">Ver Paquetes</a>
         </div>
     </nav>
@@ -440,60 +440,11 @@
                         <div class="tier-description">Cobertura de 2 horas • 50 fotos editadas • Revelación documentada</div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </div>        
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">LUMIÈRE</div>
-            <p class="footer-text">CAPTURANDO MOMENTOS ÚNICOS DESDE 2020</p>
-        </div>
-    </footer>
-
-    <script>
-        document.querySelectorAll('a[href="#paquetes"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector('#paquetes').scrollIntoView({ 
-                    behavior: 'smooth' 
-                });
-            });
-        });
-
-        const cards = document.querySelectorAll('.package-card');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, index * 100);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        cards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-            observer.observe(card);
-        });
-
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(10, 10, 10, 0.98)';
-                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
-            } else {
-                nav.style.background = 'rgba(10, 10, 10, 0.95)';
-                nav.style.boxShadow = 'none';
-            }
-        });
-    </script>
-</body>
-</html>3 class="package-title">Maternidad</h3>
+            <div class="package-card">
+                <div class="package-header">
+                    <h3 class="package-title">Sesión de Maternidad</h3>
                     <div class="package-price">DESDE $1,500</div>
                 </div>
                 <div class="package-body">
@@ -790,6 +741,50 @@
                     </div>
                 </div>
             </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('a[href="#paquetes"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('#paquetes').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            });
+        });
+
+        const cards = document.querySelectorAll('.package-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(card);
+        });
+
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(10, 10, 10, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.background = 'rgba(10, 10, 10, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
 
            <footer>
         <p>&copy; 2026 NathphotosArt. Todos los derechos reservados.</p>
