@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nath Photos - Fotografía de Lujo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 2rem;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-cta {
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        .hero-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255, 165, 0, 0.15) 0%, transparent 50%);
+            animation: heroFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, -20px) scale(1.1); }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            padding: 2rem;
+            max-width: 900px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+            color: #FFD700;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #fff 0%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(255, 215, 0, 0.6);
+        }
+
+        .hero-cta::after {
+            content: '→';
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta:hover::after {
+            transform: translateX(5px);
+        }
+
+        .packages {
+            padding: 8rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+            color: #FFD700;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.7;
+            font-weight: 300;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .package-card {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(13, 13, 13, 0.8) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .package-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .package-card:hover {
+            border-color: rgba(255, 215, 0, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.2);
+        }
+
+        .package-header {
+            padding: 2.5rem 2rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 100%);
+        }
+
+        .package-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.8rem;
+            color: #fff;
+        }
+
+        .package-price {
+            font-size: 0.9rem;
+            color: #FFD700;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .package-body {
+            padding: 0 2rem 2.5rem;
+        }
+
+        .tier {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.3rem 1.5rem;
+            margin-bottom: 0.8rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tier:hover {
+            background: rgba(255, 215, 0, 0.08);
+            border-color: rgba(255, 215, 0, 0.3);
+            transform: translateX(5px);
+        }
+
+        .tier-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.6rem;
+        }
+
+        .tier-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .tier-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .tier-premium .tier-name { color: #FFD700; }
+        .tier-premium .tier-badge { background: rgba(255, 215, 0, 0.2); color: #FFD700; }
+
+        .tier-standard .tier-name { color: #C0C0C0; }
+        .tier-standard .tier-badge { background: rgba(192, 192, 192, 0.2); color: #C0C0C0; }
+
+        .tier-basic .tier-name { color: #CD7F32; }
+        .tier-basic .tier-badge { background: rgba(205, 127, 50, 0.2); color: #CD7F32; }
+
+        .tier-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(10, 10, 10, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            opacity: 0.6;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .packages {
+                padding: 5rem 1rem;
+            }
+
+            .hero {
+                padding-top: 100px;
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .scroll-indicator::after {
+            content: '↓';
+            font-size: 2rem;
+            color: #FFD700;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo">LUMIÈRE</div>
+            <a href="#paquetes" class="nav-cta">Ver Paquetes</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-tag">FOTOGRAFÍA DE LUJO</div>
+            <h1>Tu Historia Merece Ser Inmortalizada</h1>
+            <p>Capturamos la esencia de cada momento con arte, pasión y la más alta calidad profesional</p>
+            <a href="#paquetes" class="hero-cta">Explorar Paquetes</a>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <section class="packages" id="paquetes">
+        <div class="section-header">
+            <div class="section-tag">Nuestros Servicios</div>
+            <h2 class="section-title">Paquetes Exclusivos</h2>
+            <p class="section-subtitle">Encuentra la experiencia perfecta para tu momento especial</p>
+        </div>
+
+        <div class="package-grid">
+            <div class="package-card">
+                <div class="package-header">
+                    <h3 class="package-title">Revelación en Estudio</h3>
+                    <div class="package-price">DESDE $1,500</div>
+                </div>
+                <div class="package-body">
+                    <div class="tier tier-premium">
+                        <div class="tier-header">
+                            <div class="tier-name">Premium</div>
+                            <div class="tier-badge">Más Popular</div>
+                        </div>
+                        <div class="tier-description">Evento completo • Decoración temática • 200+ fotos • Video emocional • Revelación sorpresa • Catering incluido</div>
+                    </div>
+                    <div class="tier tier-standard">
+                        <div class="tier-header">
+                            <div class="tier-name">Estándar</div>
+                            <div class="tier-badge">Recomendado</div>
+                        </div>
+                        <div class="tier-description">Cobertura de 3 horas • Decoración básica • 100 fotos editadas • Video resumen</div>
+                    </div>
+                    <div class="tier tier-basic">
+                        <div class="tier-header">
+                            <div class="tier-name">Básico</div>
+                            <div class="tier-badge">Esencial</div>
+                        </div>
+                        <div class="tier-description">Cobertura de 2 horas • 50 fotos editadas • Revelación documentada</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">LUMIÈRE</div>
+            <p class="footer-text">CAPTURANDO MOMENTOS ÚNICOS DESDE 2020</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href="#paquetes"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('#paquetes').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            });
+        });
+
+        const cards = document.querySelectorAll('.package-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(card);
+        });
+
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(10, 10, 10, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.background = 'rgba(10, 10, 10, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>3 class="package-title">Maternidad</h3>
+                    <div class="package-price">DESDE $1,500</div>
+                </div>
+                <div class="package-body">
+                    <div class="tier tier-premium">
+                        <div class="tier-header">
+                            <div class="tier-name">Premium</div>
+                            <div class="tier-badge">Más Popular</div>
+                        </div>
+                        <div class="tier-description">Sesión de 3 horas • 100+ fotos editadas • Álbum de lujo • Make-up profesional • Vestuario incluido</div>
+                    </div>
+                    <div class="tier tier-standard">
+                        <div class="tier-header">
+                            <div class="tier-name">Estándar</div>
+                            <div class="tier-badge">Recomendado</div>
+                        </div>
+                        <div class="tier-description">Sesión de 2 horas • 60 fotos editadas • Álbum digital • 2 cambios de vestuario</div>
+                    </div>
+                    <div class="tier tier-basic">
+                        <div class="tier-header">
+                            <div class="tier-name">Básico</div>
+                            <div class="tier-badge">Esencial</div>
+                        </div>
+                        <div class="tier-description">Sesión de 1 hora • 30 fotos editadas • Galería digital</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-header">
+                    <h3 class="package-title">Sesión para Bebés</h3>
+                    <div class="package-price">DESDE $1,500</div>
+                </div>
+                <div class="package-body">
+                    <div class="tier tier-premium">
+                        <div class="tier-header">
+                            <div class="tier-name">Premium</div>
+                            <div class="tier-badge">Más Popular</div>
+                        </div>
+                        <div class="tier-description">Sesión newborn completa • 80+ fotos • Props personalizados • Álbum premium • Video resumen</div>
+                    </div>
+                    <div class="tier tier-standard">
+                        <div class="tier-header">
+                            <div class="tier-name">Estándar</div>
+                            <div class="tier-badge">Recomendado</div>
+                        </div>
+                        <div class="tier-description">Sesión de 2 horas • 50 fotos editadas • Props incluidos • Álbum digital</div>
+                    </div>
+                    <div class="tier tier-basic">
+                        <div class="tier-header">
+                            <div class="tier-name">Básico</div>
+                            <div class="tier-badge">Esencial</div>
+                        </div>
+                        <div class="tier-description">Sesión de 1 hora • 25 fotos editadas • Props básicos</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-header">
+                    <h3 class="package-title">Playa & Studio</h3>
+                    <div class="package-price">DESDE $1,500</div>
+                </div>
+                <div class="package-body">
+                    <div class="tier tier-premium">
+                        <div class="tier-header">
+                            <div class="tier-name">Premium</div>
+                            <div class="tier-badge">Más Popular</div>
+                        </div>
+                        <div class="tier-description">Jornada completa • 150+ fotos • Playa y estudio • Estilista • Maquillaje • Vestuario premium</div>
+                    </div>
+                    <div class="tier tier-standard">
+                        <div class="tier-header">
+                            <div class="tier-name">Estándar</div>
+                            <div class="tier-badge">Recomendado</div>
+                        </div>
+                        <div class="tier-description">Sesión de 4 horas • 80 fotos editadas • 2 locaciones • Maquillaje básico</div>
+                    </div>
+                    <div class="tier tier-basic">
+                        <div class="tier-header">
+                            <div class="tier-name">Básico</div>
+                            <div class="tier-badge">Esencial</div>
+                        </div>
+                        <div class="tier-description">Sesión de 2 horas • 40 fotos editadas • 1 locación</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-header">
+                    <h3 class="package-title">Empresariales</h3>
+                    <div class="package-price">DESDE $1,500</div>
+                </div>
+                <div class="package-body">
+                    <div class="tier tier-premium">
+                        <div class="tier-header">
+                            <div class="tier-name">Premium</div>
+                            <div class="tier-badge">Más Popular</div>
+                        </div>
+                        <div class="tier-description">Cobertura completa • Equipo de fotógrafos • Edición express • Álbum corporativo • Video institucional</div>
+                    </div>
+                    <div class="tier tier-standard">
+                        <div class="tier-header">
+                            <div class="tier-name">Estándar</div>
+                            <div class="tier-badge">Recomendado</div>
+                        </div>
+                        <div class="tier-description">Sesión de 4 horas • Fotos corporativas • Edición profesional • Galería digital</div>
+                    </div>
+                    <div class="tier tier-basic">
+                        <div class="tier-header">
+                            <div class="tier-name">Básico</div>
+                            <div class="tier-badge">Esencial</div>
+                        </div>
+                        <div class="tier-description">Sesión de 2 horas • Retratos corporativos • Edición estándar</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-header">
+                    <h3 class="package-title">Parejas</h3>
+                    <div class="package-price">DESDE $1,500</div>
+                </div>
+                <div class="package-body">
+                    <div class="tier tier-premium">
+                        <div class="tier-header">
+                            <div class="tier-name">Premium</div>
+                            <div class="tier-badge">Más Popular</div>
+                        </div>
+                        <div class="tier-description">Sesión de ensueño • 100+ fotos • Locación exclusiva • Drone • Video cinematográfico • Álbum de lujo</div>
+                    </div>
+                    <div class="tier tier-standard">
+                        <div class="tier-header">
+                            <div class="tier-name">Estándar</div>
+                            <div class="tier-badge">Recomendado</div>
+                        </div>
+                        <div class="tier-description">Sesión de 2 horas • 60 fotos editadas • Locación especial • Álbum digital</div>
+                    </div>
+                    <div class="tier tier-basic">
+                        <div class="tier-header">
+                            <div class="tier-name">Básico</div>
+                            <div class="tier-badge">Esencial</div>
+                        </div>
+                        <div class="tier-description">Sesión de 1 hora • 30 fotos editadas • Locación urbana</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-header">
+                    <h3 class="package-title">Celebración de Cumpleaños</h3>
+                    <div class="package-price">DESDE $1,500</div>
+                </div>
+                <div class="package-body">
+                    <div class="tier tier-premium">
+                        <div class="tier-header">
+                            <div class="tier-name">Premium</div>
+                            <div class="tier-badge">Más Popular</div>
+                        </div>
+                        <div class="tier-description">Cobertura completa • 200+ fotos • Video destacado • Fotomatón • Álbum personalizado • Decoración fotográfica</div>
+                    </div>
+                    <div class="tier tier-standard">
+                        <div class="tier-header">
+                            <div class="tier-name">Estándar</div>
+                            <div class="tier-badge">Recomendado</div>
+                        </div>
+                        <div class="tier-description">Cobertura de 4 horas • 120 fotos editadas • Video resumen • Galería online</div>
+                    </div>
+                    <div class="tier tier-basic">
+                        <div class="tier-header">
+                            <div class="tier-name">Básico</div>
+                            <div class="tier-badge">Esencial</div>
+                        </div>
+                        <div class="tier-description">Cobertura de 2 horas • 60 fotos editadas • Galería digital</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-header">
+                    <h3 class="package-title">Sesiones Familiares</h3>
+                    <div class="package-price">DESDE $1,500</div>
+                </div>
+                <div class="package-body">
+                    <div class="tier tier-premium">
+                        <div class="tier-header">
+                            <div class="tier-name">Premium</div>
+                            <div class="tier-badge">Más Popular</div>
+                        </div>
+                        <div class="tier-description">Sesión de 3 horas • 100+ fotos • Locación natural • Props y decoración • Álbum familiar • Impresiones enmarcadas</div>
+                    </div>
+                    <div class="tier tier-standard">
+                        <div class="tier-header">
+                            <div class="tier-name">Estándar</div>
+                            <div class="tier-badge">Recomendado</div>
+                        </div>
+                        <div class="tier-description">Sesión de 2 horas • 60 fotos editadas • Props incluidos • Álbum digital</div>
+                    </div>
+                    <div class="tier tier-basic">
+                        <div class="tier-header">
+                            <div class="tier-name">Básico</div>
+                            <div class="tier-badge">Esencial</div>
+                        </div>
+                        <div class="tier-description">Sesión de 1 hora • 30 fotos editadas • Galería digital</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-header">
+                    <h3 class="package-title">Fotos de Productos</h3>
+                    <div class="package-price">DESDE $1,500</div>
+                </div>
+                <div class="package-body">
+                    <div class="tier tier-premium">
+                        <div class="tier-header">
+                            <div class="tier-name">Premium</div>
+                            <div class="tier-badge">Más Popular</div>
+                        </div>
+                        <div class="tier-description">Hasta 50 productos • Estudio profesional • Fondo blanco y creativo • Edición avanzada • Videos 360° • Entrega express</div>
+                    </div>
+                    <div class="tier tier-standard">
+                        <div class="tier-header">
+                            <div class="tier-name">Estándar</div>
+                            <div class="tier-badge">Recomendado</div>
+                        </div>
+                        <div class="tier-description">Hasta 25 productos • Estudio • Fondo blanco • Edición profesional</div>
+                    </div>
+                    <div class="tier tier-basic">
+                        <div class="tier-header">
+                            <div class="tier-name">Básico</div>
+                            <div class="tier-badge">Esencial</div>
+                        </div>
+                        <div class="tier-description">Hasta 10 productos • Fondo blanco • Edición básica</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-header">
+                    <h3 class="package-title">Book Personal</h3>
+                    <div class="package-price">DESDE $1,500</div>
+                </div>
+                <div class="package-body">
+                    <div class="tier tier-premium">
+                        <div class="tier-header">
+                            <div class="tier-name">Premium</div>
+                            <div class="tier-badge">Más Popular</div>
+                        </div>
+                        <div class="tier-description">Sesión de 5 horas • 120+ fotos • Maquillaje y peinado • Estilismo completo • 2 locaciones • Álbum de lujo</div>
+                    </div>
+                    <div class="tier tier-standard">
+                        <div class="tier-header">
+                            <div class="tier-name">Estándar</div>
+                            <div class="tier-badge">Recomendado</div>
+                        </div>
+                        <div class="tier-description">Sesión de 3 horas • 70 fotos editadas • Maquillaje • 1 locación</div>
+                    </div>
+                    <div class="tier tier-basic">
+                        <div class="tier-header">
+                            <div class="tier-name">Básico</div>
+                            <div class="tier-badge">Esencial</div>
+                        </div>
+                        <div class="tier-description">Sesión de 1.5 horas • 35 fotos editadas • 1 locación</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-header">
+                    <h3 class="package-title">Book Modelo</h3>
+                    <div class="package-price">DESDE $1,500</div>
+                </div>
+                <div class="package-body">
+                    <div class="tier tier-premium">
+                        <div class="tier-header">
+                            <div class="tier-name">Premium</div>
+                            <div class="tier-badge">Más Popular</div>
+                        </div>
+                        <div class="tier-description">Sesión profesional completa • 150+ fotos • Multiple looks • Estudio y exterior • Portfolio digital • Impresiones profesionales</div>
+                    </div>
+                    <div class="tier tier-standard">
+                        <div class="tier-header">
+                            <div class="tier-name">Estándar</div>
+                            <div class="tier-badge">Recomendado</div>
+                        </div>
+                        <div class="tier-description">Sesión de 4 horas • 80 fotos editadas • 3 looks • Portfolio digital</div>
+                    </div>
+                    <div class="tier tier-basic">
+                        <div class="tier-header">
+                            <div class="tier-name">Básico</div>
+                            <div class="tier-badge">Esencial</div>
+                        </div>
+                        <div class="tier-description">Sesión de 2 horas • 40 fotos editadas • 2 looks</div>
+                    </div>
+                </div>
+            </div>
+
+           <footer>
+        <p>&copy; 2026 NathphotosArt. Todos los derechos reservados.</p>
+        <p><a href="index.html" style="color: #F5F5DC; text-decoration: none;">← Volver al inicio</a></p>
+    </footer>
+</body>
+</html>
