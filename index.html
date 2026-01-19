@@ -3,846 +3,918 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nath Photos - Fotografía de Lujo</title>
+    <meta name="description" content="Diseño creativo y elegante para tu marca. Servicios de diseño web, branding y consultoría digital.">
+    <meta name="keywords" content="diseño web, branding, diseño gráfico, consultoría digital">
+    <meta name="author" content="Tu Nombre">
+    <title>Natphotosart | Estudio Fotográfico en Cancún</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo1.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/logo1.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/logo1.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <style>
+        /* ========================================
+           VARIABLES Y RESET
+        ======================================== */
+         :root {
+            --color-primary: #e9e4e1;
+            --color-secondary: #d4cfc9;
+            --color-accent: #A68B7B;
+            --color-dark: #4A4A4A;
+            --color-darker: #2C2C2C;
+            --color-white: #FFFFFF;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --transition: all 0.4s ease;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
-            background: #0a0a0a;
-            color: #fff;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
+        html {
+            scroll-behavior: smooth;
         }
 
-        .nav {
+        body {
+            font-family: var(--font-body);
+            color: var(--color-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        /* ========================================
+           TIPOGRAFÍA
+        ======================================== */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 300;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        /* ========================================
+           HEADER & NAVIGATION
+        ======================================== */
+        header {
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            padding: 1.5rem 2rem;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(20px);
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            transition: var(--transition);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
-        .nav-content {
-            max-width: 1400px;
-            margin: 0 auto;
+        header.scrolled {
+            padding: 1rem 5%;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            color: var(--color-darker);
         }
 
-        .nav-cta {
-            padding: 0.8rem 2rem;
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            color: #000;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        .logo img {
+            height: 100px;
+            width: auto;
+            display: block;
         }
 
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
         }
 
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 28px;
+            height: 2px;
+            background: var(--color-darker);
+            transition: var(--transition);
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
         .hero {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)),
+                        url('images/hero.jpg') center/cover no-repeat;
+            color: var(--color-white);
             position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-        }
-
-        .hero-bg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(255, 165, 0, 0.15) 0%, transparent 50%);
-            animation: heroFloat 8s ease-in-out infinite;
-        }
-
-        @keyframes heroFloat {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(20px, -20px) scale(1.1); }
         }
 
         .hero-content {
-            text-align: center;
-            z-index: 2;
+            max-width: 800px;
             padding: 2rem;
-            max-width: 900px;
-        }
-
-        .hero-tag {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background: rgba(255, 215, 0, 0.1);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 50px;
-            font-size: 0.9rem;
-            letter-spacing: 0.15em;
-            margin-bottom: 2rem;
-            color: #FFD700;
+            animation: fadeInUp 1.2s ease-out;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 7vw, 5rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
             margin-bottom: 1.5rem;
-            line-height: 1.1;
-            background: linear-gradient(135deg, #fff 0%, #FFD700 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
-            line-height: 1.6;
-            margin-bottom: 3rem;
-            opacity: 0.8;
-            font-weight: 300;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-bottom: 2.5rem;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
         }
 
-        .hero-cta {
-            display: inline-flex;
+        .btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--color-white);
+            color: var(--color-darker);
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 2px solid var(--color-white);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--color-white);
+        }
+
+        /* ========================================
+           ABOUT SECTION
+        ======================================== */
+        .about {
+            padding: 8rem 5%;
+            background: var(--color-primary);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
             align-items: center;
-            gap: 0.8rem;
-            padding: 1.2rem 3rem;
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            color: #000;
-            text-decoration: none;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4);
         }
 
-        .hero-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 50px rgba(255, 215, 0, 0.6);
+        .about-image {
+            position: relative;
+            animation: fadeIn 1s ease-out;
         }
 
-        .hero-cta::after {
-            content: '→';
-            font-size: 1.3rem;
-            transition: transform 0.3s ease;
+        .about-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            box-shadow: 20px 20px 0 var(--color-secondary);
         }
 
-        .hero-cta:hover::after {
-            transform: translateX(5px);
+        .about-content {
+            animation: fadeInRight 1s ease-out;
         }
 
-        .packages {
-            padding: 8rem 2rem;
+        .about-content h2 {
+            color: var(--color-darker);
+            margin-bottom: 2rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--color-dark);
+        }
+
+        /* ========================================
+           SERVICES SECTION
+        ======================================== */
+        .services {
+            padding: 8rem 5%;
+            background: var(--color-white);
+        }
+
+        .services-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+
+        .services-header h2 {
+            color: var(--color-darker);
+            margin-bottom: 1.5rem;
+        }
+
+        .services-grid {
             max-width: 1400px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
         }
 
-        .section-header {
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .service-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .service-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-info {
+            padding: 2rem 1.5rem;
+            background: var(--color-primary);
             text-align: center;
-            margin-bottom: 5rem;
+            transition: var(--transition);
         }
 
-        .section-tag {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background: rgba(255, 215, 0, 0.1);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 50px;
-            font-size: 0.85rem;
-            letter-spacing: 0.15em;
-            margin-bottom: 1.5rem;
-            color: #FFD700;
-            text-transform: uppercase;
+        .service-card:hover .service-info {
+            background: var(--color-secondary);
         }
 
-        .section-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
+        .service-info h3 {
+            color: var(--color-darker);
             margin-bottom: 1rem;
         }
 
-        .section-subtitle {
-            font-size: 1.2rem;
-            opacity: 0.7;
-            font-weight: 300;
+        .service-info p {
+            color: var(--color-dark);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .package-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 2rem;
-        }
-
-        .package-card {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(13, 13, 13, 0.8) 100%);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 0;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-
-        .package-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #FFD700, #FFA500);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .package-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .package-card:hover {
-            border-color: rgba(255, 215, 0, 0.4);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.2);
-        }
-
-        .package-header {
-            padding: 2.5rem 2rem 2rem;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 100%);
-        }
-
-        .package-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-            margin-bottom: 0.8rem;
-            color: #fff;
-        }
-
-        .package-price {
-            font-size: 0.9rem;
-            color: #FFD700;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-        }
-
-        .package-body {
-            padding: 0 2rem 2.5rem;
-        }
-
-        .tier {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 1.3rem 1.5rem;
-            margin-bottom: 0.8rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .tier:hover {
-            background: rgba(255, 215, 0, 0.08);
-            border-color: rgba(255, 215, 0, 0.3);
-            transform: translateX(5px);
-        }
-
-        .tier-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.6rem;
-        }
-
-        .tier-name {
-            font-size: 0.95rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
+        .btn-service {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: transparent;
+            color: var(--color-darker);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
+            border: 1.5px solid var(--color-darker);
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 0.5rem;
         }
 
-        .tier-badge {
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
+        .btn-service:hover {
+            background: var(--color-darker);
+            color: var(--color-white);
         }
 
-        .tier-premium .tier-name { color: #FFD700; }
-        .tier-premium .tier-badge { background: rgba(255, 215, 0, 0.2); color: #FFD700; }
-
-        .tier-standard .tier-name { color: #C0C0C0; }
-        .tier-standard .tier-badge { background: rgba(192, 192, 192, 0.2); color: #C0C0C0; }
-
-        .tier-basic .tier-name { color: #CD7F32; }
-        .tier-basic .tier-badge { background: rgba(205, 127, 50, 0.2); color: #CD7F32; }
-
-        .tier-description {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            line-height: 1.5;
+        /* ========================================
+           CONTACT SECTION
+        ======================================== */
+        .contact {
+            padding: 8rem 5%;
+            background: var(--color-primary);
         }
 
-         .package-cta {
-            display: block;
+        .contact-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: var(--color-darker);
+            margin-bottom: 1rem;
+        }
+
+        .contact > p {
+            margin-bottom: 3rem;
+            color: var(--color-dark);
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        input, textarea {
             width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            color: #000;
-            text-decoration: none;
-            font-weight: 700;
-            text-align: center;
-            border-radius: 12px;
-            margin-top: 1.5rem;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-            letter-spacing: 0.05em;
+            padding: 1.2rem;
+            background: var(--color-white);
+            border: 1px solid var(--color-secondary);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--color-dark);
+            transition: var(--transition);
         }
 
-        .package-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--color-accent);
         }
 
+        textarea {
+            resize: vertical;
+            min-height: 180px;
+            grid-column: 1 / -1;
+        }
+
+        .btn-submit {
+            justify-self: center;
+            background: var(--color-accent);
+            color: var(--color-white);
+            border: 2px solid var(--color-accent);
+        }
+
+        .btn-submit:hover {
+            background: transparent;
+            color: var(--color-accent);
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
         footer {
+            padding: 3rem 5%;
+            background: var(--color-darker);
+            color: var(--color-white);
             text-align: center;
-            padding: 4rem 2rem;
-            background: rgba(10, 10, 10, 0.95);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 5rem;
         }
 
         .footer-content {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
-        .footer-text {
-            opacity: 0.6;
-            letter-spacing: 0.1em;
+        .social-links a {
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--color-accent);
+            transform: translateY(-3px);
+        }
+
+        footer p {
             font-size: 0.9rem;
+            letter-spacing: 1px;
+            opacity: 0.8;
         }
 
-        @media (max-width: 768px) {
-            .package-grid {
+        /* ========================================
+           ANIMATIONS
+        ======================================== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+        ======================================== */
+        @media (max-width: 968px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--color-white);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: var(--transition);
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(8px, -8px);
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image img {
+                height: 400px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .form-group {
                 grid-template-columns: 1fr;
             }
+        }
 
-            .nav-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .packages {
-                padding: 5rem 1rem;
+        @media (max-width: 600px) {
+            header {
+                padding: 1rem 5%;
             }
 
             .hero {
-                padding-top: 100px;
+                height: 80vh;
+            }
+
+            .about, .services, .contact {
+                padding: 5rem 5%;
+            }
+
+            .about-image img {
+                height: 300px;
+                box-shadow: 15px 15px 0 var(--color-secondary);
+            }
+
+            .service-image {
+                height: 350px;
             }
         }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(10px); }
-        }
-
-        .scroll-indicator::after {
-            content: '↓';
-            font-size: 2rem;
-            color: #FFD700;
-            opacity: 0.6;
-        }
+         @media (max-width: 600px) {
+       .logo img {
+           height: 50px;  /* Más pequeño en móviles */
+       }
+   }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-content">
-            <div class="logo">NathphotosArt</div>
-            <a href="#paquetes" class="nav-cta">Ver Paquetes</a>
-        </div>
-    </nav>
+    <!-- HEADER -->
+    <header id="header">
+        <nav>
+            <!-- Logo de Imagen -->
+            <a href="#" class="logo"><img src="images/logo1.png" alt="nathphotosart"></a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
 
-    <section class="hero">
-        <div class="hero-bg"></div>
+            <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
         <div class="hero-content">
-            <div class="hero-tag">FOTOGRAFÍA DE LUJO</div>
-            <h1>Tu Historia Merece Ser Inmortalizada</h1>
-            <p>Capturamos la esencia de cada momento con arte, pasión y la más alta calidad profesional</p>
-            <a href="#paquetes" class="hero-cta">Explorar Paquetes</a>
+            <h1>Fotografía Que Cuenta Tu Historia</h1>
+            <p>Creando experiencias visuales auténticas y memorables</p>
+            <a href="#contacto" class="btn">Trabajemos Juntos</a>
         </div>
-        <div class="scroll-indicator"></div>
     </section>
 
-    <section class="packages" id="paquetes">
-        <div class="section-header">
-            <div class="section-tag">Nuestros Servicios</div>
-            <h2 class="section-title">Paquetes Exclusivos</h2>
-            <p class="section-subtitle">Encuentra la experiencia perfecta para tu momento especial</p>
+    <!-- ABOUT SECTION -->
+    <section class="about fade-in" id="sobre-mi">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="images/quien-soy.jpg" alt="estudio fotografico en cancun">
+            </div>
+            <div class="about-content">
+                <h2>Hola, soy Natanael Torres</h2>
+                <p>
+                    Soy fotógrafo y artista visual en Cancún, apasionado por capturar emociones reales y 
+                    transformar ideas en imágenes que cuentan historias auténticas. Desde hace más de 8 años, 
+                    la fotografía se ha convertido en mi forma de conectar con personas, marcas y momentos que 
+                    merecen ser recordados.
+                </p>
+                <p>
+                    Mi trabajo nace de la observación, la sensibilidad y el detalle. En mi estudio fotográfico en Cancún, 
+                    combino una estética minimalista con un enfoque funcional y creativo, buscando siempre que cada sesión 
+                    tenga intención, identidad y significado. No creo en imágenes vacías: cada fotografía debe comunicar, 
+                    emocionar y perdurar.
+                </p>
+                <p>
+                    Colaboro de manera cercana con mis clientes porque creo que las mejores imágenes surgen cuando existe confianza 
+                y una visión compartida. Ya sea fotografía personal, artística o comercial, mi objetivo es ayudarte a expresar tu 
+                esencia y conectar de forma genuina con tu audiencia. 
+                <p>
+                </p>     
+                <p>
+                    Cuando no estoy detrás de la cámara, me encontrarás recorriendo galerías de arte, explorando la ciudad con mi lente
+                    o disfrutando de un buen café mientras doy forma a nuevas ideas e historias visuales.
+                <p>  
+                </p>
+            </div>
         </div>
+    </section>
 
-        <div class="package-grid">
-            <div class="package-card">
-                <div class="package-header">
-                    <h3 class="package-title">Revelación en Estudio</h3>
-                    <div class="package-price">DESDE $1,500</div>
+    <!-- SERVICES SECTION -->
+    <section class="services fade-in" id="servicios">
+        <div class="services-header">
+            <h2>Servicios</h2>
+            <p>Encuentra tu sesión ideal</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/sesion-bebes.png" alt="estudio fotografico en cancun">
                 </div>
-                <div class="package-body">
-                    <div class="tier tier-premium">
-                        <div class="tier-header">
-                            <div class="tier-name">Premium</div>
-                            <div class="tier-badge">Más Popular</div>
-                        </div>
-                        <div class="tier-description">Evento completo • Decoración temática • 200+ fotos • Video emocional • Revelación sorpresa • Catering incluido</div>
-                    </div>
-                    <div class="tier tier-standard">
-                        <div class="tier-header">
-                            <div class="tier-name">Estándar</div>
-                            <div class="tier-badge">Recomendado</div>
-                        </div>
-                        <div class="tier-description">Cobertura de 3 horas • Decoración básica • 100 fotos editadas • Video resumen</div>
-                    </div>
-                    <div class="tier tier-basic">
-                        <div class="tier-header">
-                            <div class="tier-name">Básico</div>
-                            <div class="tier-badge">Esencial</div>
-                        </div>
-                        <div class="tier-description">Cobertura de 2 horas • 50 fotos editadas • Revelación documentada</div>
-                    </div>
-
-                    <a href="#contacto" class="package-cta">Reservar Ahora</a>
-
+                <div class="service-info">
+                    <h3>Sesiones para Bebés</h3>
+                    <a href="#contacto" class="btn-service">Ver Paquetes</a>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/revelacion-en-estudio.jpg" alt="estudio fotografico en cancun">
+                </div>
+                <div class="service-info">
+                    <h3>Revelación en Estudio</h3>
+                    <a href="#contacto" class="btn-service">Ver Paquetes</a>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/productos.png" alt="estudio fotografico en cancun">
+                </div>
+                <div class="service-info">
+                    <h3>Productos</h3>
+                    <a href="#contacto" class="btn-service">Ver Paquetes</a>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/parejas.png" alt="estudio fotografico en cancun">
+                </div>
+                <div class="service-info">
+                    <h3>Parejas</h3>
+                    <a href="#contacto" class="btn-service">Ver Paquetes</a>
+                </div>
+            </div>    
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/maternidad.png" alt="estudio fotografico en cancun">
+                </div>
+                <div class="service-info">
+                    <h3>Maternidad</h3>
+                    <a href="#contacto" class="btn-service">Ver Paquetes</a>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/familiares.jpg" alt="estudio fotografico en cancun">
+                </div>
+                <div class="service-info">
+                    <h3>Familiares</h3>
+                    <a href="#contacto" class="btn-service">Ver Paquetes</a>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/empresariales.jpg" alt="estudio fotografico en cancun">
+                </div>
+                <div class="service-info">
+                    <h3>Empresariales</h3>
+                    <a href="#contacto" class="btn-service">Ver Paquetes</a>
                 </div>
             </div>        
-
-            <div class="package-card">
-                <div class="package-header">
-                    <h3 class="package-title">Sesión de Maternidad</h3>
-                    <div class="package-price">DESDE $1,500</div>
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/cumpleaños.jpg" alt="estudio fotografico en cancun">
                 </div>
-                <div class="package-body">
-                    <div class="tier tier-premium">
-                        <div class="tier-header">
-                            <div class="tier-name">Premium</div>
-                            <div class="tier-badge">Más Popular</div>
-                        </div>
-                        <div class="tier-description">Sesión de 3 horas • 100+ fotos editadas • Álbum de lujo • Make-up profesional • Vestuario incluido</div>
-                    </div>
-                    <div class="tier tier-standard">
-                        <div class="tier-header">
-                            <div class="tier-name">Estándar</div>
-                            <div class="tier-badge">Recomendado</div>
-                        </div>
-                        <div class="tier-description">Sesión de 2 horas • 60 fotos editadas • Álbum digital • 2 cambios de vestuario</div>
-                    </div>
-                    <div class="tier tier-basic">
-                        <div class="tier-header">
-                            <div class="tier-name">Básico</div>
-                            <div class="tier-badge">Esencial</div>
-                        </div>
-                        <div class="tier-description">Sesión de 1 hora • 30 fotos editadas • Galería digital</div>
-                    </div>
-
-                    <a href="#contacto" class="package-cta">Reservar Ahora</a>
-
+                <div class="service-info">
+                    <h3>Cumpleaños</h3>
+                    <a href="#contacto" class="btn-service">Ver Paquetes</a>
+                </div>
+            </div>  
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/book-personal.png" alt="estudio fotografico en cancun">
+                </div>
+                <div class="service-info">
+                    <h3>Book Personal</h3>
+                    <a href="#contacto" class="btn-service">Ver Paquetes</a>
                 </div>
             </div>
-
-            <div class="package-card">
-                <div class="package-header">
-                    <h3 class="package-title">Sesión para Bebés</h3>
-                    <div class="package-price">DESDE $1,500</div>
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/book-personal-full.png" alt="estudio fotografico en cancun">
                 </div>
-                <div class="package-body">
-                    <div class="tier tier-premium">
-                        <div class="tier-header">
-                            <div class="tier-name">Premium</div>
-                            <div class="tier-badge">Más Popular</div>
-                        </div>
-                        <div class="tier-description">Sesión newborn completa • 80+ fotos • Props personalizados • Álbum premium • Video resumen</div>
-                    </div>
-                    <div class="tier tier-standard">
-                        <div class="tier-header">
-                            <div class="tier-name">Estándar</div>
-                            <div class="tier-badge">Recomendado</div>
-                        </div>
-                        <div class="tier-description">Sesión de 2 horas • 50 fotos editadas • Props incluidos • Álbum digital</div>
-                    </div>
-                    <div class="tier tier-basic">
-                        <div class="tier-header">
-                            <div class="tier-name">Básico</div>
-                            <div class="tier-badge">Esencial</div>
-                        </div>
-                        <div class="tier-description">Sesión de 1 hora • 25 fotos editadas • Props básicos</div>
-                    </div>
-
-                    <a href="#contacto" class="package-cta">Reservar Ahora</a>
-
+                <div class="service-info">
+                    <h3>Book Personal Full</h3>
+                    <a href="#contacto" class="btn-service">Ver Paquetes</a>
                 </div>
-            </div>
-
-            <div class="package-card">
-                <div class="package-header">
-                    <h3 class="package-title">Playa & Studio</h3>
-                    <div class="package-price">DESDE $4,500</div>
+            </div>   
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/book-modelo.png" alt="estudio fotografico en cancun">
                 </div>
-                <div class="package-body">
-                    <div class="tier tier-premium">
-                        <div class="tier-header">
-                            <div class="tier-name">Premium</div>
-                            <div class="tier-badge">Más Popular</div>
-                        </div>
-                        <div class="tier-description">Jornada completa • 150+ fotos • Playa y estudio • Estilista • Maquillaje • Vestuario premium</div>
-                    </div>
-                    <div class="tier tier-standard">
-                        <div class="tier-header">
-                            <div class="tier-name">Estándar</div>
-                            <div class="tier-badge">Recomendado</div>
-                        </div>
-                        <div class="tier-description">Sesión de 4 horas • 80 fotos editadas • 2 locaciones • Maquillaje básico</div>
-                    </div>
-                    <div class="tier tier-basic">
-                        <div class="tier-header">
-                            <div class="tier-name">Básico</div>
-                            <div class="tier-badge">Esencial</div>
-                        </div>
-                        <div class="tier-description">Sesión de 2 horas • 40 fotos editadas • 1 locación</div>
-                    </div>
-
-                    <a href="#contacto" class="package-cta">Reservar Ahora</a>
-
+                <div class="service-info">
+                    <h3>Book Modelo</h3>
+                    <a href="#contacto" class="btn-service">Ver Paquetes</a>
                 </div>
-            </div>
+            </div>  
+        </div>
+    </div>    
+</section>
 
-            <div class="package-card">
-                <div class="package-header">
-                    <h3 class="package-title">Empresariales</h3>
-                    <div class="package-price">DESDE $1,500</div>
+    <!-- CONTACT SECTION -->
+    <section class="contact fade-in" id="contacto">
+        <div class="contact-container">
+            <h2>Hablemos de Tu Proyecto</h2>
+            <p>Cuéntame sobre tu visión y hagamos que suceda</p>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Tu Nombre" required>
+                    <input type="email" name="email" placeholder="Tu Email" required>
                 </div>
-                <div class="package-body">
-                    <div class="tier tier-premium">
-                        <div class="tier-header">
-                            <div class="tier-name">Premium</div>
-                            <div class="tier-badge">Más Popular</div>
-                        </div>
-                        <div class="tier-description">Cobertura completa • Equipo de fotógrafos • Edición express • Álbum corporativo • Video institucional</div>
-                    </div>
-                    <div class="tier tier-standard">
-                        <div class="tier-header">
-                            <div class="tier-name">Estándar</div>
-                            <div class="tier-badge">Recomendado</div>
-                        </div>
-                        <div class="tier-description">Sesión de 4 horas • Fotos corporativas • Edición profesional • Galería digital</div>
-                    </div>
-                    <div class="tier tier-basic">
-                        <div class="tier-header">
-                            <div class="tier-name">Básico</div>
-                            <div class="tier-badge">Esencial</div>
-                        </div>
-                        <div class="tier-description">Sesión de 2 horas • Retratos corporativos • Edición estándar</div>
-                    </div>
-
-                    <a href="#contacto" class="package-cta">Reservar Ahora</a>
-
-                </div>
-            </div>
-
-            <div class="package-card">
-                <div class="package-header">
-                    <h3 class="package-title">Parejas</h3>
-                    <div class="package-price">DESDE $1,500</div>
-                </div>
-                <div class="package-body">
-                    <div class="tier tier-premium">
-                        <div class="tier-header">
-                            <div class="tier-name">Premium</div>
-                            <div class="tier-badge">Más Popular</div>
-                        </div>
-                        <div class="tier-description">Sesión de ensueño • 100+ fotos • Locación exclusiva • Drone • Video cinematográfico • Álbum de lujo</div>
-                    </div>
-                    <div class="tier tier-standard">
-                        <div class="tier-header">
-                            <div class="tier-name">Estándar</div>
-                            <div class="tier-badge">Recomendado</div>
-                        </div>
-                        <div class="tier-description">Sesión de 2 horas • 60 fotos editadas • Locación especial • Álbum digital</div>
-                    </div>
-                    <div class="tier tier-basic">
-                        <div class="tier-header">
-                            <div class="tier-name">Básico</div>
-                            <div class="tier-badge">Esencial</div>
-                        </div>
-                        <div class="tier-description">Sesión de 1 hora • 30 fotos editadas • Locación urbana</div>
-                    </div>
-
-                    <a href="#contacto" class="package-cta">Reservar Ahora</a>
-
-                </div>
-            </div>
-
-            <div class="package-card">
-                <div class="package-header">
-                    <h3 class="package-title">Celebración de Cumpleaños</h3>
-                    <div class="package-price">DESDE $1,500</div>
-                </div>
-                <div class="package-body">
-                    <div class="tier tier-premium">
-                        <div class="tier-header">
-                            <div class="tier-name">Premium</div>
-                            <div class="tier-badge">Más Popular</div>
-                        </div>
-                        <div class="tier-description">Cobertura completa • 200+ fotos • Video destacado • Fotomatón • Álbum personalizado • Decoración fotográfica</div>
-                    </div>
-                    <div class="tier tier-standard">
-                        <div class="tier-header">
-                            <div class="tier-name">Estándar</div>
-                            <div class="tier-badge">Recomendado</div>
-                        </div>
-                        <div class="tier-description">Cobertura de 4 horas • 120 fotos editadas • Video resumen • Galería online</div>
-                    </div>
-                    <div class="tier tier-basic">
-                        <div class="tier-header">
-                            <div class="tier-name">Básico</div>
-                            <div class="tier-badge">Esencial</div>
-                        </div>
-                        <div class="tier-description">Cobertura de 2 horas • 60 fotos editadas • Galería digital</div>
-                    </div>
-
-                    <a href="#contacto" class="package-cta">Reservar Ahora</a>
-
-                </div>
-            </div>
-
-            <div class="package-card">
-                <div class="package-header">
-                    <h3 class="package-title">Sesiones Familiares</h3>
-                    <div class="package-price">DESDE $1,500</div>
-                </div>
-                <div class="package-body">
-                    <div class="tier tier-premium">
-                        <div class="tier-header">
-                            <div class="tier-name">Premium</div>
-                            <div class="tier-badge">Más Popular</div>
-                        </div>
-                        <div class="tier-description">Sesión de 3 horas • 100+ fotos • Locación natural • Props y decoración • Álbum familiar • Impresiones enmarcadas</div>
-                    </div>
-                    <div class="tier tier-standard">
-                        <div class="tier-header">
-                            <div class="tier-name">Estándar</div>
-                            <div class="tier-badge">Recomendado</div>
-                        </div>
-                        <div class="tier-description">Sesión de 2 horas • 60 fotos editadas • Props incluidos • Álbum digital</div>
-                    </div>
-                    <div class="tier tier-basic">
-                        <div class="tier-header">
-                            <div class="tier-name">Básico</div>
-                            <div class="tier-badge">Esencial</div>
-                        </div>
-                        <div class="tier-description">Sesión de 1 hora • 30 fotos editadas • Galería digital</div>
-                    </div>
-
-                    <a href="#contacto" class="package-cta">Reservar Ahora</a>
-
-                </div>
-            </div>
-
-            <div class="package-card">
-                <div class="package-header">
-                    <h3 class="package-title">Fotos de Productos</h3>
-                    <div class="package-price">DESDE $4,700</div>
-                </div>
-                <div class="package-body">
-                    <div class="tier tier-premium">
-                        <div class="tier-header">
-                            <div class="tier-name">Premium</div>
-                            <div class="tier-badge">Más Popular</div>
-                        </div>
-                        <div class="tier-description">Hasta 50 productos • Estudio profesional • Fondo blanco y creativo • Edición avanzada • Videos 360° • Entrega express</div>
-                    </div>
-                    <div class="tier tier-standard">
-                        <div class="tier-header">
-                            <div class="tier-name">Estándar</div>
-                            <div class="tier-badge">Recomendado</div>
-                        </div>
-                        <div class="tier-description">Hasta 25 productos • Estudio • Fondo blanco • Edición profesional</div>
-                    </div>
-                    <div class="tier tier-basic">
-                        <div class="tier-header">
-                            <div class="tier-name">Básico</div>
-                            <div class="tier-badge">Esencial</div>
-                        </div>
-                        <div class="tier-description">Hasta 10 productos • Fondo blanco • Edición básica</div>
-                    </div>
-
-                    <a href="#contacto" class="package-cta">Reservar Ahora</a>
-
-                </div>
-            </div>
-
-            <div class="package-card">
-                <div class="package-header">
-                    <h3 class="package-title">Book Personal</h3>
-                    <div class="package-price">$5,800</div>
-                </div>
-                <div class="package-body">
-                    <div class="tier tier-premium">
-                        <div class="tier-header">
-                            <div class="tier-name">Premium</div>
-                            <div class="tier-badge">Más Popular</div>
-                        </div>
-                        <div class="tier-description">Sesión de 5 horas • 120+ fotos • Maquillaje y peinado • Estilismo completo • 2 locaciones • Álbum de lujo</div>
-                    </div>
-                    <div class="tier tier-standard">
-                        <div class="tier-header">
-                            <div class="tier-name">Estándar</div>
-                            <div class="tier-badge">Recomendado</div>
-                        </div>
-                        <div class="tier-description">Sesión de 3 horas • 70 fotos editadas • Maquillaje • 1 locación</div>
-                    </div>
-                    <div class="tier tier-basic">
-                        <div class="tier-header">
-                            <div class="tier-name">Básico</div>
-                            <div class="tier-badge">Esencial</div>
-                        </div>
-                        <div class="tier-description">Sesión de 1.5 horas • 35 fotos editadas • 1 locación</div>
-                    </div>
-
-                    <a href="#contacto" class="package-cta">Reservar Ahora</a>
-
-                </div>
-            </div>
-
-            <div class="package-card">
-                <div class="package-header">
-                    <h3 class="package-title">Book Modelo</h3>
-                    <div class="package-price">DESDE $1,500</div>
-                </div>
-                <div class="package-body">
-                    <div class="tier tier-premium">
-                        <div class="tier-header">
-                            <div class="tier-name">Premium</div>
-                            <div class="tier-badge">Más Popular</div>
-                        </div>
-                        <div class="tier-description">Sesión profesional completa • 150+ fotos • Multiple looks • Estudio y exterior • Portfolio digital • Impresiones profesionales</div>
-                    </div>
-                    <div class="tier tier-standard">
-                        <div class="tier-header">
-                            <div class="tier-name">Estándar</div>
-                            <div class="tier-badge">Recomendado</div>
-                        </div>
-                        <div class="tier-description">Sesión de 4 horas • 80 fotos editadas • 3 looks • Portfolio digital</div>
-                    </div>
-                    <div class="tier tier-basic">
-                        <div class="tier-header">
-                            <div class="tier-name">Básico</div>
-                            <div class="tier-badge">Esencial</div>
-                        </div>
-                        <div class="tier-description">Sesión de 2 horas • 40 fotos editadas • 2 looks</div>
-                    </div>
-
-                    <a href="#contacto" class="package-cta">Reservar Ahora</a>
-                    
-                </div>
-            </div>
+                <input type="text" name="subject" placeholder="Asunto" required>
+                <textarea name="message" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+                <button type="submit" class="btn btn-submit">Enviar Mensaje</button>
+            </form>
+        </div>
     </section>
 
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" aria-label="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+</svg>
+   </a>
+            </div>
+            <p>&copy; 2026 Natphotosart. Todos los derechos reservados.</p>
+    </footer>
+
     <script>
-        document.querySelectorAll('a[href="#paquetes"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector('#paquetes').scrollIntoView({ 
-                    behavior: 'smooth' 
-                });
+        // ========================================
+        // MOBILE MENU TOGGLE
+        // ========================================
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
             });
         });
 
-        const cards = document.querySelectorAll('.package-card');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, index * 100);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        cards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-            observer.observe(card);
-        });
+        // ========================================
+        // HEADER SCROLL EFFECT
+        // ========================================
+        const header = document.getElementById('header');
 
         window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.nav');
             if (window.scrollY > 100) {
-                nav.style.background = 'rgba(10, 10, 10, 0.98)';
-                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+                header.classList.add('scrolled');
             } else {
-                nav.style.background = 'rgba(10, 10, 10, 0.95)';
-                nav.style.boxShadow = 'none';
+                header.classList.remove('scrolled');
             }
         });
-    </script>
-</body>
 
-           <footer>
-        <p>&copy; 2026 NathphotosArt. Todos los derechos reservados.</p>
-        <p><a href="index.html" style="color: #F5F5DC; text-decoration: none;">← Volver al inicio</a></p>
-    </footer>
+        // ========================================
+        // FADE IN ON SCROLL
+        // ========================================
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -100px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        fadeElements.forEach(element => {
+            appearOnScroll.observe(element);
+        });
+
+        // ========================================
+        // FORM SUBMISSION
+        // ========================================
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Aquí puedes integrar tu servicio de email (FormSpree, EmailJS, etc.)
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+            
+            console.log('Datos del formulario:', data);
+            
+            // Mostrar mensaje de éxito
+            alert('¡Gracias por tu mensaje! Te responderé pronto.');
+            contactForm.reset();
+        });
+
+        // ========================================
+        // SMOOTH SCROLL POLYFILL FOR SAFARI
+        // ========================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

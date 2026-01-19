@@ -1,1 +1,2 @@
 # Studio Nath
+este sitio web esta hecho con codigo HTML, el hosting está en Github Pages, dominio de Namecheap y todo el website esta dentro de la carpeta sitio-nath, cualquier cambio o modificación se puede hacer en la carpeta index.html
