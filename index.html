@@ -586,43 +586,33 @@
                 height: 400px;
             }
 
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
             .form-group {
                 grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 600px) {
-            header {
-                padding: 1rem 5%;
-            }
+        @media (max-width: 768px) {
 
-            .hero {
-                height: 80vh;
-            }
+  .services {
+    padding: 4rem 5%;
+  }
 
-            .about, .services, .contact {
-                padding: 5rem 5%;
-            }
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 
-            .about-image img {
-                height: 300px;
-                box-shadow: 15px 15px 0 var(--color-secondary);
-            }
+  .service-image {
+    height: auto;
+  }
 
-            .service-image {
-                height: 350px;
-            }
-        }
-         @media (max-width: 600px) {
-       .logo img {
-           height: 50px;  /* Más pequeño en móviles */
-       }
-   }
+  .service-image img {
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+
+}
+
     </style>
 </head>
 <body>
