@@ -832,21 +832,22 @@
 </section>
 
     <!-- CONTACT SECTION -->
-    <section class="contact fade-in" id="contacto">
-        <div class="contact-container">
-            <h2>Hablemos de Tu Proyecto</h2>
-            <p>Cuéntame sobre tu visión y hagamos que suceda</p>
-            <form class="contact-form" id="contactForm">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Tu Nombre" required>
-                    <input type="email" name="email" placeholder="Tu Email" required>
-                </div>
-                <input type="text" name="subject" placeholder="Asunto" required>
-                <textarea name="message" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
-                <button type="submit" class="btn btn-submit">Enviar Mensaje</button>
-            </form>
-        </div>
-    </section>
+<section class="contact fade-in" id="contacto">
+    <div class="contact-container">
+        <h2>Hablemos de Tu Proyecto</h2>
+        <p>Cuéntame sobre tu visión y hagamos que suceda</p>
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <input type="text" name="nombre" placeholder="Tu Nombre" required>
+                <input type="email" name="email" placeholder="Tu Email" required>
+            </div>
+            <input type="tel" name="telefono" placeholder="Tu Teléfono (opcional)">
+            <input type="text" name="asunto" placeholder="Asunto" required>
+            <textarea name="mensaje" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+            <button type="submit" class="btn btn-submit">Enviar Mensaje</button>
+        </form>
+    </div>
+</section>
 
     <!-- FOOTER -->
     <footer>
@@ -923,24 +924,51 @@
             appearOnScroll.observe(element);
         });
 
-        // ========================================
-        // FORM SUBMISSION
-        // ========================================
-        const contactForm = document.getElementById('contactForm');
+       // ========================================
+// FORM SUBMISSION - WHATSAPP
+// ========================================
+const contactForm = document.getElementById('contactForm');
 
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Aquí puedes integrar tu servicio de email (FormSpree, EmailJS, etc.)
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData);
-            
-            console.log('Datos del formulario:', data);
-            
-            // Mostrar mensaje de éxito
-            alert('¡Gracias por tu mensaje! Te responderé pronto.');
-            contactForm.reset();
-        });
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Obtener los datos del formulario
+    const formData = new FormData(contactForm);
+    const nombre = formData.get('nombre');
+    const email = formData.get('email');
+    const telefono = formData.get('telefono') || 'No proporcionado';
+    const mensaje = formData.get('mensaje');
+    
+    // Crear el mensaje para WhatsApp
+    const mensajeWhatsApp = `Hola, soy ${nombre}
+
+📋 Asunto: ${asunto}    
+📧 Email: ${email}
+📱 Teléfono: ${telefono}
+
+Mensaje:
+${mensaje}`;
+    
+    // Codificar el mensaje para URL
+    const mensajeCodificado = encodeURIComponent(mensajeWhatsApp);
+    
+    // Número de WhatsApp (usa el mismo que tienes)
+    const numeroWhatsApp = '529984580628';
+    
+    // Crear URL de WhatsApp
+    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+    
+    // Abrir WhatsApp en nueva pestaña
+    window.open(urlWhatsApp, '_blank');
+    
+    // Limpiar formulario
+    contactForm.reset();
+    
+    // Mensaje opcional de confirmación
+    setTimeout(() => {
+        alert('¡Redirigiendo a WhatsApp!');
+    }, 500);
+});
 
         // ========================================
         // SMOOTH SCROLL POLYFILL FOR SAFARI
