@@ -924,50 +924,43 @@
             appearOnScroll.observe(element);
         });
 
-       // ========================================
+   // ========================================
 // FORM SUBMISSION - WHATSAPP
 // ========================================
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+// ========================================
+// FORM SUBMISSION - WHATSAPP
+// ========================================
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
     
-    // Obtener los datos del formulario
-    const formData = new FormData(contactForm);
-    const nombre = formData.get('nombre');
-    const email = formData.get('email');
-    const telefono = formData.get('telefono') || 'No proporcionado';
-    const mensaje = formData.get('mensaje');
-    
-    // Crear el mensaje para WhatsApp
-    const mensajeWhatsApp = `Hola, soy ${nombre}
+    if (!contactForm) {
+        console.error('Formulario no encontrado');
+        return;
+    }
 
-📋 Asunto: ${asunto}    
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const nombre = document.querySelector('input[name="nombre"]').value;
+        const email = document.querySelector('input[name="email"]').value;
+        const telefono = document.querySelector('input[name="telefono"]').value || 'No proporcionado';
+        const asunto = document.querySelector('input[name="asunto"]').value;
+        const mensaje = document.querySelector('textarea[name="mensaje"]').value;
+        
+        const texto = `Hola, soy ${nombre}
+
+📋 Asunto: ${asunto}
 📧 Email: ${email}
 📱 Teléfono: ${telefono}
 
 Mensaje:
 ${mensaje}`;
-    
-    // Codificar el mensaje para URL
-    const mensajeCodificado = encodeURIComponent(mensajeWhatsApp);
-    
-    // Número de WhatsApp (usa el mismo que tienes)
-    const numeroWhatsApp = '529984580628';
-    
-    // Crear URL de WhatsApp
-    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
-    
-    // Abrir WhatsApp en nueva pestaña
-    window.open(urlWhatsApp, '_blank');
-    
-    // Limpiar formulario
-    contactForm.reset();
-    
-    // Mensaje opcional de confirmación
-    setTimeout(() => {
-        alert('¡Redirigiendo a WhatsApp!');
-    }, 500);
+        
+        const url = `https://api.whatsapp.com/send?phone=529984580628&text=${encodeURIComponent(texto)}`;
+        
+        window.open(url, '_blank');
+        contactForm.reset();
+    });
 });
 
         // ========================================
