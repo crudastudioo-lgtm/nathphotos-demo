@@ -566,20 +566,24 @@
             <p>&copy; 2026 Natphotosart. Todos los derechos reservados.</p>
     </footer>
 
-    <script>
-        // ========================================
-        // MOBILE MENU TOGGLE
-        // ========================================
+   <script>
+    // Mobile Menu Toggle
+    document.addEventListener('DOMContentLoaded', function() {
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
         const navItems = document.querySelectorAll('.nav-links a');
 
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
+        // Toggle menú
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                console.log('Menú toggled'); // Debug
+            });
+        }
 
-        // Cerrar menú al hacer clic en un enlace
+        // Cerrar menú al hacer clic en enlaces
         navItems.forEach(item => {
             item.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
@@ -587,16 +591,16 @@
             });
         });
 
-        // ========================================
-        // HEADER SCROLL EFFECT
-        // ========================================
-        const header = document.getElementById('header');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') && 
+                !navLinks.contains(e.target) && 
+                !menuToggle.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
             }
         });
-
+    });
+</script>
+</body>
+</html>
